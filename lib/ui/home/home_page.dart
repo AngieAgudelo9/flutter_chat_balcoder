@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_balcoder/ui/home/contact/contact_list_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -16,10 +17,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin
 
     _tabController = new TabController(length: 2, initialIndex: 0, vsync: this);
   }
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +36,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin
     body: Center(
       child: TabBarView(
         children: [
-        Container( color: Colors.white),
+        ContactListPage (),
         Container( color: Colors.white),
 
 
