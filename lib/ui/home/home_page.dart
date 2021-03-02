@@ -39,8 +39,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin
     body: Center(
       child: TabBarView(
         children: [
-        Container( color: Colors.red),
-        Container( color: Colors.blue),
+        Container( color: Colors.white),
+        Container( color: Colors.white),
 
 
 

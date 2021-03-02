@@ -1,7 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_balcoder/ui/home/home_page.dart';
 
-void main() {
+Future<void> main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  FirebaseApp app = await Firebase.initializeApp();
+  assert(app != null);
+  print('Initialized default app $app');
+
   runApp(MyApp());
 }
 
@@ -12,9 +19,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-      primarySwatch: Colors. blue,),
+        primarySwatch: Colors.blue,
+      ),
       home: HomePage(),
     );
-    }
-    }
-    
+  }
+}
