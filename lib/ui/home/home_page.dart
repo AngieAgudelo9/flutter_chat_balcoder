@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_balcoder/ui/chat/chat_form_page.dart';
 import 'package:flutter_chat_balcoder/ui/home/contact/contact_list_page.dart';
+import 'package:flutter_chat_balcoder/ui/home/contact/model/contact_form_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -12,7 +14,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     _tabController = new TabController(length: 2, initialIndex: 0, vsync: this);
@@ -38,9 +39,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin
         children: [
         ContactListPage (),
         Container( color: Colors.white),
-
-
-
         ],
         controller: _tabController,
 
@@ -50,7 +48,38 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin
 
     ),
     floatingActionButton: FloatingActionButton(
-    onPressed: () {},
+    onPressed: () {
+      Navigator.of(context).push(MaterialPageRoute (builder: (_){
+        if (_tabController.index == 0) {
+          print ("PRESSED CONTACT PAGE");
+          return ContactFormPage ();}
+
+          else {
+            print ("PRESSED CHAT PAGE");
+            return ChatFormPage ();
+          
+
+          }
+
+
+        }
+
+
+
+      )
+      );
+
+
+
+
+    },
+    
+
+
+
+
+
+
     child: Icon( Icons.add )),
       
     );
