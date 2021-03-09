@@ -25,12 +25,13 @@ class _ChatFormPageState extends State<ChatFormPage> {
     return Center(
       child: Scaffold(
           appBar: AppBar(
+            backgroundColor: Colors.pink[400], 
             title: Center(child: Text("CHAT")),
           ),
           body: Column(children: [
             Container(
                 height: _height * 0.75,
-                color: Colors.pink[100],
+                color: Colors.transparent,
                 child: StreamBuilder(
                   stream: _chatService.chatCollection
                       .orderBy('createdDate', descending: false)
@@ -41,12 +42,12 @@ class _ChatFormPageState extends State<ChatFormPage> {
                     switch (snapshot.connectionState) {
                       case ConnectionState.waiting:
                         return new Center(
-                            child: new CircularProgressIndicator());
+                        child: new CircularProgressIndicator());
 
                       default:
                         _chatList = [];
                         snapshot.data.docs.forEach((doc) {
-                          _chatList.add(new ChatModel.fromSnapshot(doc));
+                        _chatList.add(new ChatModel.fromSnapshot(doc));
                         });
 
                         Future.delayed(const Duration(seconds: 100), () {
@@ -68,7 +69,7 @@ class _ChatFormPageState extends State<ChatFormPage> {
                                 decoration: BoxDecoration(
                                 color: _chatList[index].sendtoUID == myUID
                                 ? Colors.purple[200]
-                                : Colors. green[200],
+                                : Colors. brown[100],
                                 borderRadius: BorderRadius.circular(10)),
                                 child: Padding(
                                 padding:const EdgeInsets.all(8.0),

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_balcoder/ui/home/contact/contact_service.dart';
+import 'package:flutter_chat_balcoder/ui/home/contact/model/contact_form_page.dart';
 import 'package:flutter_chat_balcoder/ui/home/contact/model/contact_model.dart';
 
 class ContactListPage extends StatefulWidget {
@@ -28,7 +29,9 @@ class _ContactListPageState extends State<ContactListPage> {
   Widget build(BuildContext context) {
     return Container(
       child: StreamBuilder(
-        stream: _contactService.contactCollection.snapshots(),
+        stream: _contactService.contactCollection
+        .where('isDeleted', isEqualTo: false )
+        .snapshots(),
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
 //switch: loading... un iconito de cargando la informacion que voy a digitar en el siguiente SWITCH
           switch (snapshot.connectionState) {
@@ -36,6 +39,7 @@ class _ContactListPageState extends State<ContactListPage> {
               return new Center(child: new CircularProgressIndicator());
 
             default:
+            _contactList = [];
               snapshot.data.docs.forEach((doc) {
                 _contactList.add(new ContactModel.fromSnapshot(doc));
               });
@@ -44,8 +48,36 @@ class _ContactListPageState extends State<ContactListPage> {
                 itemCount: _contactList.length,
                 itemBuilder: (BuildContext context, int index) {
                   return ListTile(
+                  onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                    return ContactFormPage(
+                    contactModel: _contactList[index]);
+
+                  }));
+
+
+
+
+                  },
+
+
+
+
+
+                  leading: CircleAvatar(
+                  backgroundColor: Colors.amber[200],
+                  child: Text( _contactList[index].contactName[0].toUpperCase(), style: TextStyle (color: Colors.pink),),),
+
                     title: Text(_contactList[index].contactName),
-                  );
+                    subtitle: Text(_contactList[index].phoneNumber),
+                    trailing: GestureDetector(
+                      onTap: () {
+                      _contactService.deleteContact(_contactList[index]);
+
+
+                      }, child: Icon (Icons.delete, color: Colors.pink[100]),
+                  ));
+                  
                 },
               );
           }
