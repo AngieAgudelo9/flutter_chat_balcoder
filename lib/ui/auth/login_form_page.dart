@@ -25,11 +25,7 @@ class _LoginFormPageState extends State<LoginFormPage> {
             gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: AlignmentDirectional.bottomCenter,
-                colors: [
-              Color(0xFF73AEF5),
-              Color(0xFF61A4F1),
-              Color(0xFF478ED0),
-              Color(0xFF398AE5),
+                colors: [ Colors.pink[50], Colors.pink[100], Colors.pink[200], Colors.pink[300]
             ],
                 stops: [
               0.1,
@@ -43,7 +39,7 @@ class _LoginFormPageState extends State<LoginFormPage> {
             children: [
               Spacer(),
               Material(
-                color: Color(0xFF73AEF5),
+                color: Colors.pink[100],
                 elevation: 18.0,
                 borderRadius: BorderRadius.circular(10.0),
                 child: Padding(
@@ -55,10 +51,10 @@ class _LoginFormPageState extends State<LoginFormPage> {
                       border: InputBorder.none,
                       icon: Icon(
                         Icons.email_outlined,
-                        color: Color(0xffFFFFFF),
+                        color: Colors.black,
                       ),
                       labelText: "Correo electrónico",
-                      labelStyle: TextStyle(color: Color(0xffFFFFFF)),
+                      labelStyle: TextStyle(color: Colors.black),
                     ),
                   ),
                 ),
@@ -67,7 +63,7 @@ class _LoginFormPageState extends State<LoginFormPage> {
                 height: 25.0,
               ),
               Material(
-                color: Color(0xFF73AEF5),
+                color: Colors.pink[100],
                 elevation: 18.0,
                 borderRadius: BorderRadius.circular(10.0),
                 child: Padding(
@@ -80,10 +76,10 @@ class _LoginFormPageState extends State<LoginFormPage> {
                       border: InputBorder.none,
                       icon: Icon(
                         Icons.lock_rounded,
-                        color: Color(0xffFFFFFF),
+                        color: Colors.black,
                       ),
                       labelText: "Password",
-                      labelStyle: TextStyle(color: Color(0xffFFFFFF)),
+                      labelStyle: TextStyle(color: Colors.black),
                     ),
                   ),
                 ),
@@ -105,7 +101,7 @@ class _LoginFormPageState extends State<LoginFormPage> {
                       label: Text("Iniciar Sesión"),
                       style: TextButton.styleFrom(
                           primary: Colors.white,
-                          backgroundColor: Colors.indigo[900],
+                          backgroundColor: Colors.pink[900],
                           shadowColor: Colors.black,
                           elevation: 15.0,
                           textStyle: TextStyle(
@@ -119,7 +115,7 @@ class _LoginFormPageState extends State<LoginFormPage> {
                             print (uid);
                             widget.onLoggedIn();
                       },
-                      
+
                     ),
                   ),
                 ),
@@ -139,7 +135,7 @@ class _LoginFormPageState extends State<LoginFormPage> {
                     child: TextButton.icon(
                       icon: Padding(
                         padding: const EdgeInsets.only(right: 12.0),
-                        child: Icon(Icons.no_encryption_gmailerrorred_rounded),
+                        child: Icon(Icons.alternate_email),
                       ),
                       label: Text("Ingresar con google"),
                       style: TextButton.styleFrom(
