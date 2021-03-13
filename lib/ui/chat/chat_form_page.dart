@@ -42,7 +42,7 @@ class _ChatFormPageState extends State<ChatFormPage> {
                     switch (snapshot.connectionState) {
                       case ConnectionState.waiting:
                         return new Center(
-                        child: new CircularProgressIndicator());
+                            child: new CircularProgressIndicator());
 
                       default:
                         _chatList = [];

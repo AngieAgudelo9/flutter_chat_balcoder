@@ -31,10 +31,10 @@ class _ContactFormPageState extends State<ContactFormPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.pink[400],
+        backgroundColor: Colors.pink[900],
         title: Text("ContactPage"),
       ),
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.pink[50],
       body: Padding(
         padding: const EdgeInsets.only(top: 35.0, left: 35.0, right: 35.0),
         child: Column(
@@ -44,16 +44,16 @@ class _ContactFormPageState extends State<ContactFormPage> {
               decoration: InputDecoration(
                   icon: Icon(
                     Icons.person,
-                    color: Color(0xff0F6B70),
+                    color: Colors.pink,
                   ),
                   labelText: "Nombre de contacto",
-                  labelStyle: TextStyle(color: Color(0xff0F6B70)),
+                  labelStyle: TextStyle(color: Colors.pink),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20.0),
-                      borderSide: BorderSide(color: Color(0xff0F6B70))),
+                      borderSide: BorderSide(color: Colors.pink)),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20.0),
-                      borderSide: BorderSide(color: Color(0xff17A8B0)))),
+                      borderSide: BorderSide(color: Colors.pink))),
             ),
             SizedBox(
               height: 25.0,
@@ -63,16 +63,16 @@ class _ContactFormPageState extends State<ContactFormPage> {
               decoration: InputDecoration(
                   icon: Icon(
                     Icons.phone_android,
-                    color: Color(0xff0F6B70),
+                    color: Colors.pink,
                   ),
                   labelText: "Numero de contacto",
-                  labelStyle: TextStyle(color: Color(0xff0F6B70)),
+                  labelStyle: TextStyle(color: Colors.pink),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20.0),
-                      borderSide: BorderSide(color: Color(0xff0F6B70))),
+                      borderSide: BorderSide(color: Colors.pink)),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20.0),
-                      borderSide: BorderSide(color: Color(0xff17A8B0)))),
+                      borderSide: BorderSide(color: Colors.pink))),
             ),
             SizedBox(
               height: 50.0,
@@ -93,7 +93,7 @@ class _ContactFormPageState extends State<ContactFormPage> {
                     widget.contactModel.key != null ? "ACTUALIZAR" : "GUARDAR"),
                 style: TextButton.styleFrom(
                     primary: Colors.white,
-                    backgroundColor: Color(0xff0F6B70),
+                    backgroundColor: Colors.pink[900],
                     shadowColor: Colors.black,
                     elevation: 15.0,
                     textStyle: TextStyle(
